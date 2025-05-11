@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frontend Mentor | Intro section with dropdown navigation</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex ;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      font-family: 'Inter', sans-serif;
+    }
+    .container {
+      padding: 30px;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .btns button {
+      padding: 5px 20px;
+      color: gray;
+      background-color: transparent;
+      cursor: pointer;
+    }
+    .btns button:hover {
+      color: black;
+    }
+    .logIn {
+      border:none;
+    }
+    .reg {
+      border: 1px solid black;
+      border-radius: 10px;
+    }
+
+    .dropDown_1 ul {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .dropDown_2 ul {
+      display: flex;
+      flex-direction: column;
+    }
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    ul {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      list-style: none;
+      color: gray;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    li:hover {
+      color: black;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      padding: 100px;
+    }
+
+    .first {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-top: 100px;
+    }
+
+    .logos {
+      display: flex;
+      justify-content: space-between;
+    }
+
+
+    .first h1 {
+      font-size: 70px;
+    }
+
+    .text p {
+      font-size: 20px;
+      color: gray;
+    }
+
+    .dropDown_1 {
+      position: absolute;
+      top: 75px;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      left: 110px;
+      display: none;
+    }
+
+    .dropDown_2 {
+      position: absolute;
+      top: 75px;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      display: none;
+    }
+
+    .text button {
+      background-color: black;
+      border-radius: 10px;
+      padding: 15px;
+      font-weight: bold;
+      color: white;
+      border: none;
+      width: 30%;
+      cursor: pointer;
+    }
+
+    .text button:hover {
+      background-color: white;
+      border: 1px solid black;
+      color: black;
+    }
+    .dropDown_1.active {
+      display: block !important;
+    }
+    .dropDown_2.active{
+      display: block !important;
+    }
+
+    .text {
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+    }
+
+    .second img {
+      max-width: 450px;
+    }
+
+    header div {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .menu {
+      display: none;
+    }
+    .mobPhoto {
+      display: none;
+    }
+    details{
+      display: none;
+    }
+    .mobButtons {
+      display: none;
+    }
+    @media (max-width: 450px) {
+      .navbar {
+        background-color: white;
+        padding: 100px 30px 30px 30px;
+        flex-direction: column;
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 170vh;
+        display: none;
+      }
+
+      .navbar li {
+        margin-top: 20px;
+      }
+
+      .navbar.act{
+        display: block !important;
+      }
+      .btns button {
+        display: none;
+      }
+      .menu {
+        display: block;
+        z-index: 20;
+      }
+      .menu.open{
+        content: url("images/icon-close-menu.svg") !important;
+      }
+      main {
+        grid-template-columns: 1fr;
+        padding: 0;
+        gap: 0;
+      }
+      .first h1 {
+        font-size: 50px;
+        text-align: center;
+      }
+      .text {
+        gap: 20px;
+        align-items: center;
+        padding-top: 20px;
+      }
+
+      .mobButtons {
+        display: flex;
+        flex-direction: column;
+        padding-top: 20px;
+      }
+
+      .logos {
+        padding-top: 50px;
+      }
+      details {
+        display: block !important;
+      }
+      .text p {
+        font-size: small;
+        text-align: center;
+      }
+      .desktopPhoto {
+        display: none;
+      }
+      .mobPhoto {
+        display: block;
+        max-width: 400px;
+      }
+      .features {
+        display: none;
+      }
+      .company {
+        display: none;
+      }
+    }
+  </style>
+  <script defer src="script.js"></script>
+</head>
+<body>
+<div class="container">
+  <header class="header">
+    <div>
+      <img src="images/logo.svg" alt="">
+      <nav>
+        <ul class="navbar">
+          <details>
+            <summary style="list-style: none; padding-bottom: 20px">
+              Features <img src="images/icon-arrow-down.svg" alt="">
+            </summary>
+            <div style="display: flex; flex-direction: column; text-align: left">
+              <div style="display: flex; align-items: center">
+                <img src="images/icon-todo.svg" alt="">Todo List
+              </div>
+              <div style="display: flex; align-items: center">
+                <img src="images/icon-calendar.svg" alt="">Calendar
+              </div>
+              <div style="display: flex; align-items: center">
+                <img src="images/icon-reminders.svg" alt="">Reminders
+              </div>
+              <div style="display: flex; align-items: center">
+                <img src="images/icon-planning.svg" alt="">Planning
+              </div>
+            </div>
+          </details>
+          <li class="features">
+            Features
+            <img src="images/icon-arrow-down.svg" alt="">
+            <div class="dropDown_1">
+              <ul>
+                <li>
+                  <img src="images/icon-todo.svg" alt="">
+                  Todo List
+                </li>
+                <li>
+                  <img src="images/icon-calendar.svg" alt="">
+                  Calendar
+                </li>
+                <li>
+                  <img src="images/icon-reminders.svg" alt="">
+                  Reminders
+                </li>
+                <li>
+                  <img src="images/icon-planning.svg" alt="">
+                  Planning
+                </li>
+              </ul>
+            </div>
+          </li>
+          <details>
+            <summary style="list-style: none">
+              Company <img src="images/icon-arrow-down.svg" alt="">
+            </summary>
+            <div style="display: flex; flex-direction: column; text-align: left">
+              <div>History</div>
+              <div>Our team</div>
+              <div>Blog</div>
+            </div>
+          </details>
+          <li class="company">
+            Company
+            <img src="images/icon-arrow-down.svg" alt="">
+            <div class="dropDown_2">
+              <ul>
+                <li>History</li>
+                <li>Our team</li>
+                <li>Blog</li>
+              </ul>
+            </div>
+          </li>
+          <li>Careers</li>
+          <li>About</li>
+          <div class="mobButtons">
+            <button style="padding: 5px 20px; background-color: transparent; border: none;border-radius: 10px; color: gray;">Log In</button>
+            <button style="padding: 5px 20px; background-color: transparent; border: 1px solid black; border-radius: 10px; color: gray; ">Sign In</button>
+          </div>
+        </ul>
+      </nav>
+    </div>
+    <div class="btns">
+      <img class="menu" src="images/icon-menu.svg" alt="">
+
+    </div>
+  </header>
+  <main>
+    <div class="first">
+      <img src="images/image-hero-mobile.png" alt="" class="mobPhoto">
+      <div class="text">
+        <h1>Make remote work</h1>
+        <p>Get your team in sync, no matter your location. Streamline processes, create team rituals, and watch productivity soar.</p>
+        <button>Learn more</button>
+      </div>
+      <div class="logos">
+        <img src="images/client-databiz.svg" alt="">
+        <img src="images/client-audiophile.svg" alt="">
+        <img src="images/client-meet.svg" alt="">
+        <img src="images/client-maker.svg" alt="">
+      </div>
+    </div>
+    <div class="second">
+      <img class="desktopPhoto" src="images/image-hero-desktop.png" alt="">
+    </div>
+  </main>
+</div>
+</body>
+</html>

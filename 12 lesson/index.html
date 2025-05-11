@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Space tourism website</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .container {
+      background-image: url("src/images/Bitmap.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      font-family: 'Inter', sans-serif;
+      height: 100%;
+      width: 100%;
+      background-position: center;
+      color: white;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-left: 40px;
+      padding-top: 40px;
+    }
+    .nav {
+      background-color: rgba(255, 255, 255, 0.09);
+      padding: 25px 140px 25px 100px;
+    }
+    .line {
+      border-top: 1px solid rgba(255, 255, 255, 0.67);
+      position: absolute;
+      right: 50%;
+      z-index: 20;
+      width: 30%;
+    }
+    a {
+      text-decoration: none;
+      color: white;
+    }
+    ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-weight: lighter;
+    }
+    span {
+      font-weight: bold;
+    }
+    main {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 100px;
+    }
+    h1 {
+      font-size: 100px;
+    }
+    .title {
+      text-transform: uppercase;
+      font-size: larger;
+      padding-right: 80px;
+    }
+    .first {
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
+    }
+    .second  {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+
+    .second button {
+      background-color: white;
+      padding: 100px 50px;
+      border-radius: 100%;
+      border: none;
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      box-shadow: 0 0 0 80px rgba(255, 255, 255, 0.4);
+    }
+    .mobLogo {
+      display: none;
+    }
+    @media (max-width: 450px) {
+      .line {
+        display: none;
+      }
+      .nav {
+        display: none;
+        flex-direction: column;
+        height: 267vh;
+        position: absolute;
+        z-index: 2;
+        padding: 100px 30px 30px 30px;
+        top: 0;
+        right: 0;
+        text-align: left;
+      }
+
+      .mobLogo.active {
+        content: url("src/images/close.png");
+      }
+
+      .nav.open {
+        display: block !important;
+      }
+
+      .nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .first {
+        text-align: center;
+      }
+      main {
+        justify-content: center;
+        flex-direction: column;
+      }
+      .title {
+        padding: 0;
+      }
+
+      .second {
+        padding-top: 100px;
+      }
+      .mobLogo {
+        padding-right: 40px;
+        display: block !important;
+        z-index: 20;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <img src="src/images/logo.png" alt="">
+    <div class="line"></div>
+    <img class="mobLogo" src="src/images/Group.png" alt="">
+    <nav class="nav">
+      <ul>
+        <li><span>00</span> HOME</li>
+        <li><a href="destination-moon.html"><span>01</span> DESTINATION</a></li>
+        <li><a href="crew-commander.html"><span>02</span> CREW</a></li>
+        <li><a href="technology-vehicle.html"><span>03</span> TECHNOLOGY</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div class="first" style="max-width: 400px">
+      <p class="title">So, you want to travel to</p>
+      <h1>SPACE</h1>
+      <p style="color: gray">Let’s face it; if you want to go to space, you might as well genuinely go to
+        outer space and not hover kind of on the edge of it. Well sit back, and relax
+        because we’ll give you a truly out of this world experience!</p>
+    </div>
+    <div class="second">
+      <a href="destination-moon.html">
+        <button>EXPLORE</button>
+      </a>
+
+    </div>
+  </main>
+</div>
+<script>
+  let nav=document.querySelector('.nav')
+  let mobNav=document.querySelector('.mobLogo')
+  mobNav.addEventListener('click', function (){
+    nav.classList.toggle('open')
+    mobNav.classList.toggle('active')
+  })
+</script>
+</body>
+</html>
